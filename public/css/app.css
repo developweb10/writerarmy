@@ -1,0 +1,8 @@
+/* CSS for the App */
+
+.company-logo {
+    padding: 0px !important;
+}
+.company-logo img {
+    height: 50px !important;
+}

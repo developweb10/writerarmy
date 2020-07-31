@@ -1,0 +1,7 @@
+# Apache Rewrite Rules
+ <IfModule mod_rewrite.c>
+RedirectMatch 404 /\.git
+
+</IfModule>
+
+# End of Apache Rewrite Rules

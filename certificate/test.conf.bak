@@ -1,0 +1,32 @@
+<VirtualHost *:80>
+    ServerName app.writerarmy.com
+    Redirect permanent / https://app.writerarmy.com/
+</VirtualHost>
+
+<VirtualHost *:443>
+    ServerAdmin admin@writerarmy.com
+    ServerName app.writerarmy.com
+    ServerAlias app.writerarmy.com
+
+            SSLEngine on
+            SSLCertificateFile /etc/apache2/sites-enabled/certificate/app_writerarmy_com.crt
+            SSLCertificateKeyFile /etc/apache2/sites-enabled/certificate/app.writerarmy.com.key
+            SSLCertificateChainFile /etc/apache2/sites-enabled/certificate/app_writerarmy_com.ca-bundle
+
+    DocumentRoot /var/www/html/writerarmy/public/
+
+    <Directory />
+        AllowOverride All
+    </Directory>
+
+    <Directory /var/www/html/writerarmy/public/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride all
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/apache2/app.writerarmy.com-error.log
+    LogLevel error
+    CustomLog /var/log/apache2/app.writerarmy.com-access.log combined
+
+</VirtualHost>
